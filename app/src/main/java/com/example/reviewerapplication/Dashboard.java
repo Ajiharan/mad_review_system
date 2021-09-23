@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,12 +27,14 @@ public class Dashboard extends AppCompatActivity {
     private Button add_reviwes,add_favorites,add_items;
     private EditText no_of_reviews,no_of_favorites,no_of_items;
     private FirebaseFirestore db;
+    private TextView usernames;
     private ImageView suggestionicon,userprofile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         no_of_reviews=findViewById(R.id.no_of_reviews);
+        usernames=findViewById(R.id.usernames);
         no_of_favorites=findViewById(R.id.no_of_favorites);
         no_of_items=findViewById(R.id.no_of_items);
         mAuth = FirebaseAuth.getInstance();
@@ -42,6 +45,7 @@ public class Dashboard extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         suggestionicon=findViewById(R.id.suggestionicon);
         userprofile=findViewById(R.id.userprofile);
+        usernames.setText(currentUser.getDisplayName());
         userprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

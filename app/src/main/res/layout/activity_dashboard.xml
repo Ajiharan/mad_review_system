@@ -164,7 +164,7 @@
         app:srcCompat="@drawable/ic_view_headline" />
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/usernames"
         android:layout_width="120dp"
         android:layout_height="29dp"
         android:layout_marginTop="16dp"
